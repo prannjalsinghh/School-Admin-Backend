@@ -13,7 +13,6 @@ const {
 } = require("firebase/storage");
 const storage = require("./firebase");
 
-const PORT= process.env.PORT || 4000;
 
 mongoose.connect("mongodb+srv://pranjalsingh:Pranshu2001@cluster0.yvugcq2.mongodb.net/?retryWrites=true&w=majority")
 app.use(cors());
@@ -66,6 +65,4 @@ app.post("/addPicture", upload.single("pic"), async (req, res) => {
 
 
 
-app.listen((PORT),()=>{
-    console.log('server is running on port ',PORT)
-})
+app.listen(process.env.PORT ||4000);
